@@ -1,0 +1,13 @@
+{
+  "name": "dsa",
+  "version": "1.0.0",
+  "description": "data structures and algorithms",
+  "scripts": {
+    "test": "vitest"
+  },
+  "author": "ace baum",
+  "license": "ISC",
+  "devDependencies": {
+    "vitest": "^1.1.1"
+  }
+}
