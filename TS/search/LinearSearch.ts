@@ -9,3 +9,14 @@ export default function linearSearch(
     }
     return false;
 }
+
+/*
+function linearSearch(arr, target)
+    for element in arr 
+        if element == target 
+            return true
+        endIf
+    endFor
+    return false
+endFunction
+*/
