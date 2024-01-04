@@ -1,14 +1,11 @@
+import { Node } from './LinkedList';
+
 interface Queue<T> {
     get length(): number;
     enqueue(item: T): void;
     dequeue(): T | undefined;
     peek(): T | undefined;
 }
-
-type Node<T> = {
-    value: T;
-    next?: Node<T>;
-};
 
 export default class Queue1<T> implements Queue<T> {
     public length: number;

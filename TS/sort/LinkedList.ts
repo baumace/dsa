@@ -8,6 +8,11 @@ interface LinkedList<T> {
     get(index: number): T | undefined;
 }
 
+export type Node<T> = {
+    value: T;
+    next?: Node<T>;
+};
+
 class LinkedList1<T> implements LinkedList<T> {
     public length: number;
 
