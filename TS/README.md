@@ -15,3 +15,9 @@ if the array is sorted, use binary search to have a worst case of log(n)
 
 ### Analysis Note
 If halving of input occurs, either n or nlog(n)
+
+## Sort
+bubble sort takes n^2 time
+during each iteration i, bubble sort puts the i-th largest element in the i-th to last position
+
+## Linked List

@@ -2,6 +2,7 @@ import { describe, expect, test } from 'vitest';
 import linear_fn from '../search/LinearSearch.ts';
 import binary_fn from '../search/BinarySearch.ts';
 import two_crystal_balls from '../search/TwoCrystalBalls.ts';
+import bubble_sort from '../sort/BubbleSort.ts';
 
 describe('array searches', () => {
     test('linear search array', () => {
@@ -34,5 +35,12 @@ describe('array searches', () => {
 
         expect(two_crystal_balls(data)).toEqual(idx);
         expect(two_crystal_balls(new Array(821).fill(false))).toEqual(-1);
+    });
+
+    test('bubble-sort', function () {
+        const arr = [9, 3, 7, 4, 69, 420, 42];
+
+        bubble_sort(arr);
+        expect(arr).toEqual([3, 4, 7, 9, 42, 69, 420]);
     });
 });
