@@ -3,6 +3,7 @@ import linear_fn from '../search/LinearSearch.ts';
 import binary_fn from '../search/BinarySearch.ts';
 import two_crystal_balls from '../search/TwoCrystalBalls.ts';
 import bubble_sort from '../sort/BubbleSort.ts';
+import quick_sort from '../sort/QuickSort.ts';
 
 describe('array searches', () => {
     test('linear search array', () => {
@@ -41,6 +42,13 @@ describe('array searches', () => {
         const arr = [9, 3, 7, 4, 69, 420, 42];
 
         bubble_sort(arr);
+        expect(arr).toEqual([3, 4, 7, 9, 42, 69, 420]);
+    });
+
+    test("quick-sort", function () {
+        const arr = [9, 3, 7, 4, 69, 420, 42];
+
+        quick_sort(arr);
         expect(arr).toEqual([3, 4, 7, 9, 42, 69, 420]);
     });
 });
