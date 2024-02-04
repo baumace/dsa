@@ -22,20 +22,15 @@ export default class DoublyLinkedList<T> implements LinkedList<T> {
         }
 
         this.length++;
-        let curr = this.head;
-        for (let i = 0; i < index; i++) {
-            curr = curr?.next;
-        }
-
-        curr = curr as Node<T>;
+        const curr = this.getAt(index) as Node<T>;
 
         const node = { value: item } as Node<T>;
         node.prev = curr.prev;
         node.next = curr;
 
         curr.prev = node;
-        if (curr.prev) {
-            curr.prev.next = node;
+        if (node.prev) {
+            node.prev.next = node;
         }
     }
 
@@ -76,7 +71,32 @@ export default class DoublyLinkedList<T> implements LinkedList<T> {
     }
 
     removeAt(index: number): T | undefined {
+        const node = this.getAt(index) as Node<T>;
+        if (!node) {
+            return undefined;
+        }
 
+        --this.length;
+        if (this.length === 0) {
+            this.head = this.tail = undefined;
+            return node.value;
+        }
+
+        if (node.next) {
+            node.next.prev = node.prev;
+        }
+        if (node.prev) {
+            node.prev.next = node.next;
+        }
+        if (node === this.head) {
+            this.head = node.next;
+        }
+        if (node === this.tail) {
+            this.tail = node.prev;
+        }
+
+        node.next = node.prev = undefined;
+        return node.value;
     }
 
     append(item: T): void {
@@ -104,6 +124,14 @@ export default class DoublyLinkedList<T> implements LinkedList<T> {
     }
 
     get(index: number): T | undefined {
+        return this.getAt(index)?.value;
+    }
 
+    private getAt(idx: number): Node<T> | undefined {
+        let curr = this.head;
+        for (let i = 0; curr && i < idx; i++) {
+            curr = curr?.next;
+        }
+        return curr as Node<T>;
     }
 }
