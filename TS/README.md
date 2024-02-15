@@ -39,3 +39,8 @@ good random access (ie 18th element)
 typically choose the middle element, (ie. length/2)
     worst case is n^2 when the array is reverse sorted
 best/average case is nlog(n)
+
+## Trees
+    preorder traversal goes: node -> left -> right
+    in order: left -> node -> right
+    postorder: left -> right -> node
